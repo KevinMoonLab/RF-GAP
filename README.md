@@ -11,3 +11,27 @@ x <- iris[, 1:4]
 y <- iris[, 5]
 prox <- get_proximities(x, y, type = 'rfgap')
 ```
+
+# Create 2-dimensional MDS embedding and plot
+
+```{r}
+x <- iris[, 1:4]
+y <- iris[, 5]
+mds <- rf_mds(x, y, type = 'rfgap')
+
+plot(mds, y)
+```
+
+# Impute missing data
+```{r}
+x <- airquality[, -4]
+y <- airquality[, 4]
+imputed_data <- rf_impute(x, y, type = 'rfgap')
+```
+
+# Run Outlier Detection
+```{r}
+x <- iris[, 1:4]
+y <- iris[, 5]
+outlier_score <- rf_outliers(x, y, type = 'rfgap')
+```
