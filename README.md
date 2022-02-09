@@ -1,8 +1,3 @@
-README.rmd
-================
-Jake S. Rhodes
-2/9/2022
-
 # RF-GAP
 
 ## Random Forest Geometry- and Accuracy-Preserving proximities
