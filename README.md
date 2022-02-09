@@ -34,10 +34,10 @@ y <- iris[, 5]
 mds <- rf_mds(x, y, type = 'rfgap')
 ```
 
-    ## initial  value 16.262681 
-    ## iter   5 value 8.115620
-    ## iter  10 value 7.591029
-    ## final  value 7.572629 
+    ## initial  value 15.796144 
+    ## iter   5 value 7.904859
+    ## iter  10 value 7.225951
+    ## final  value 7.213712 
     ## converged
 
 ``` r

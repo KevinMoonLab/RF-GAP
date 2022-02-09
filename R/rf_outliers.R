@@ -21,6 +21,11 @@
 #'
 
 rf_outliers <- function(x, y, type = "rfgap", rf = NULL, ...) {
+
+  if (!is.factor(y)) {
+    stop('rf_outliers is only available for classification problems.  Be
+            sure "y" is a factor type.')
+  }
   y <- as.factor(y)
 
   n <- dim(x)[1]
@@ -55,4 +60,54 @@ rf_outliers <- function(x, y, type = "rfgap", rf = NULL, ...) {
 # Generic function to impose rf_outlier class
 as.rf_outlier <- function(x) {
   x <- structure(x, class = c('rf_outlier', 'numeric'))
+}
+
+
+###############################################################################
+
+#' This is is a generic plot function for an rf_outlier object
+#'
+#' @name plot.rf_outlier
+#' @param outlier an rf_outlier object
+#' @param x dataframe associated with the outlier scores
+#' @param y class labels associated with x.
+#' @param base_size starting point size
+#' @param scale_size how much is the outlier score affecting point size
+#' @param ... Additional arguments for mds and generic plotting
+#' @import ggplot2
+#' @export
+#'
+plot.rf_outlier <- function(outlier, x, y, base_size = 2, scale_size = 3, ...) {
+
+  x <- as.data.frame(x)
+
+  mds <- as.data.frame(rf_mds(x, y, ...))
+
+  Class <- y
+
+  scale = as.numeric(base_size + min_max_scale(outlier) * scale_size)
+
+  g <- ggplot2::ggplot(mds, ggplot2::aes(x = V1, y = V2)) +
+
+    {if (is.factor(y))geom_point(aes(shape = Class, color = Class,
+                                     size = scale))} +
+    {if (is.factor(y))scale_color_brewer(palette = 'Dark2')} +
+
+
+    {if (is.factor(y))scale_shape_manual(values = c(19, 17, 15, 3, 7,
+                                                    8, 18, 25, 10, 11,
+                                                    4, 9, 2, 12, 14))} +
+
+
+    {if (!is.factor(y))geom_point(aes(color = y,
+                                      size  = scale))} +
+
+    {if (!is.factor(y))scale_colour_continuous(low = '#ffffd9',
+                                               high = '#0c2c84')} +
+
+    theme(axis.title = element_blank(),
+          axis.text = element_blank(),
+          axis.ticks = element_blank())
+
+  g
 }

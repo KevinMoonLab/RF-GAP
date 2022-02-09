@@ -45,7 +45,9 @@ imputed_data <- rf_impute(x, y, type = 'rfgap')
 
 ## Run Outlier Detection
 ```{r}
-x <- iris[, 1:4]
-y <- iris[, 5]
+x <- mtcars[, -c(1, 2)]
+y <- as.factor(mtcars[, 2])
 outlier_scores <- rf_outliers(x, y, type = 'rfgap')
+
+plot(outlier_scores, x, y)
 ```

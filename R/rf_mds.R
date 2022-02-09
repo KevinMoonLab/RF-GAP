@@ -63,7 +63,9 @@ plot.rf_mds <- function(x, y, ...) {
   g <- ggplot2::ggplot(x, ggplot2::aes(x = V1, y = V2)) +
 
     {if (is.factor(y))geom_point(aes(shape = Class, color = Class))} +
-    {if (is.factor(y))scale_color_brewer(palette = 'Paired')} +
+    {if (is.factor(y))scale_color_brewer(palette = 'Dark2')} +
+
+
     {if (is.factor(y))scale_shape_manual(values = c(19, 17, 15, 3, 7,
                                                     8, 18, 25, 10, 11,
                                                     4, 9, 2, 12, 14))} +
