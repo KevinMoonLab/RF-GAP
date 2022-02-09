@@ -1,0 +1,14 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+ignore
+experiments
+^\\proximities$
+datasets
+outlier_measures
+imputation
+impuation_100_reps
+mds_embeddings
+svgs
+archive
+^data-raw$
+results
