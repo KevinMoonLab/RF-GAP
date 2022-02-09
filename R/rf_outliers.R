@@ -68,24 +68,24 @@ as.rf_outlier <- function(x) {
 #' This is is a generic plot function for an rf_outlier object
 #'
 #' @name plot.rf_outlier
-#' @param outlier an rf_outlier object
-#' @param x dataframe associated with the outlier scores
-#' @param y class labels associated with x.
+#' @param x an rf_outlier object
+#' @param data dataframe associated with the outlier scores
+#' @param y class labels associated with data
 #' @param base_size starting point size
 #' @param scale_size how much is the outlier score affecting point size
 #' @param ... Additional arguments for mds and generic plotting
 #' @import ggplot2
 #' @export
 #'
-plot.rf_outlier <- function(outlier, x, y, base_size = 2, scale_size = 3, ...) {
+plot.rf_outlier <- function(x, data, y, base_size = 2, scale_size = 3, ...) {
 
-  x <- as.data.frame(x)
+  data <- as.data.frame(data)
 
-  mds <- as.data.frame(rf_mds(x, y, ...))
+  mds <- as.data.frame(rf_mds(data, y, ...))
 
   Class <- y
 
-  scale = as.numeric(base_size + min_max_scale(outlier) * scale_size)
+  scale = as.numeric(base_size + min_max_scale(x) * scale_size)
 
   g <- ggplot2::ggplot(mds, ggplot2::aes(x = V1, y = V2)) +
 

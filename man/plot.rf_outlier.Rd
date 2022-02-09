@@ -4,14 +4,14 @@
 \alias{plot.rf_outlier}
 \title{This is is a generic plot function for an rf_outlier object}
 \usage{
-\method{plot}{rf_outlier}(outlier, x, y, base_size = 2, scale_size = 3, ...)
+\method{plot}{rf_outlier}(x, data, y, base_size = 2, scale_size = 3, ...)
 }
 \arguments{
-\item{outlier}{an rf_outlier object}
+\item{x}{an rf_outlier object}
 
-\item{x}{dataframe associated with the outlier scores}
+\item{data}{dataframe associated with the outlier scores}
 
-\item{y}{class labels associated with x.}
+\item{y}{class labels associated with data}
 
 \item{base_size}{starting point size}
 
