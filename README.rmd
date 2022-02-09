@@ -2,7 +2,7 @@
 title: "README.rmd"
 author: "Jake S. Rhodes"
 date: "2/9/2022"
-output: github_document
+output: rmarkdown::github_document
 ---
 
 ```{r setup, include=FALSE}

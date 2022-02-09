@@ -34,10 +34,10 @@ y <- iris[, 5]
 mds <- rf_mds(x, y, type = 'rfgap')
 ```
 
-    ## initial  value 15.858093 
-    ## iter   5 value 8.031132
-    ## iter  10 value 7.621701
-    ## final  value 7.604858 
+    ## initial  value 16.262681 
+    ## iter   5 value 8.115620
+    ## iter  10 value 7.591029
+    ## final  value 7.572629 
     ## converged
 
 ``` r
@@ -46,7 +46,7 @@ plot(mds, y)
 
 ![](README_files/figure-gfm/unnamed-chunk-1-1.png)<!-- -->
 
-# Impute missing data
+## Impute missing data
 
 ``` r
 x <- airquality[, -4]
@@ -54,7 +54,7 @@ y <- airquality[, 4]
 imputed_data <- rf_impute(x, y, type = 'rfgap')
 ```
 
-# Run Outlier Detection
+## Run Outlier Detection
 
 ``` r
 x <- iris[, 1:4]
